@@ -39,7 +39,7 @@ public:
 
     // Displays a simple program banner
     void displayBanner() {
-        cout << "=== Welcome to Simple Stocks Tracker ===\n";
+        cout << "=== Welcome to Simple  Tracker ===\n";
     }
 
     // Adds a new trade with full input validation
