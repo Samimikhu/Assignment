@@ -47,7 +47,7 @@ public:
 
         // Prevent adding more trades than allowed
         if (numTrades >= MAX_TRADES) {
-            cout << "Max trades reached!\n";
+            cout << "Max trades reached! Don't overtrade save your capital!\n";
             return;
         }
 
