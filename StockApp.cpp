@@ -124,26 +124,44 @@ void StockApp::showMenu() {
 
 // ---------- Test-friendly methods ----------
 
+// Adds a trade for testing purposes, bypassing user input
 bool StockApp::addTradeTest(const Trade& t) {
+    // If the array is full, reject the trade
     if (numTrades >= MAX_TRADES) return false;
+
+    // If shares or price are invalid, reject the trade
     if (t.shares <= 0 || t.price <= 0) return false;
+
+    // Store the trade in the array and increment the trade count
     trades[numTrades++] = t;
+
+    // Trade was successfully added
     return true;
 }
 
+// Returns the number of trades currently stored
 int StockApp::getNumTrades() const {
-    return numTrades;
+    return numTrades;  // Simply return the current trade count
 }
 
+// Calculates total portfolio value for all trades
 double StockApp::getTotalPortfolioValue() const {
-    double total = 0.0;
+    double total = 0.0;  // Start with 0
+
+    // Loop through each trade and add its total value (shares * price)
     for (int i = 0; i < numTrades; i++) {
         total += trades[i].shares * trades[i].price;
     }
+
+    // Return the total portfolio value
     return total;
 }
 
+// Returns the risk level of a trade at a given index
 RiskLevel StockApp::getRiskAt(int index) const {
+    // If the index is invalid (negative or beyond current trades), return default Low risk
     if (index < 0 || index >= numTrades) return Low;
+
+    // Otherwise, return the stored risk for that trade
     return trades[index].risk;
 }

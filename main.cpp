@@ -14,7 +14,7 @@ int main() {
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-// ---------------- A) CALCULATIONS (4 TESTS) ----------------
+//         A) CALCULATIONS (4 TESTS) 
 
 TEST_CASE("Total portfolio value with multiple trades") {
     StockApp app;
@@ -43,7 +43,7 @@ TEST_CASE("Invalid trade not included in total") {
     CHECK(app.getTotalPortfolioValue() == 0.0);
 }
 
-// ---------------- B) ENUM DECISION LOGIC (3 TESTS) ----------------
+//        B) ENUM DECISION LOGIC (3 TESTS) 
 
 TEST_CASE("Low risk stored correctly") {
     StockApp app;
@@ -64,7 +64,7 @@ TEST_CASE("Invalid index returns default risk") {
     CHECK(app.getRiskAt(0) == Low);
 }
 
-// ---------------- C) STRUCT / ARRAY PROCESSING (3 TESTS) ----------------
+//         C) STRUCT / ARRAY PROCESSING (3 TESTS) 
 
 TEST_CASE("Trade count increases when adding trades") {
     StockApp app;
@@ -88,7 +88,7 @@ TEST_CASE("Empty trade list has zero count") {
     CHECK(app.getNumTrades() == 0);
 }
 
-// ---------------- D) CLASS METHODS (2 TESTS) ----------------
+//          D) CLASS METHODS (2 TESTS)
 
 TEST_CASE("addTradeTest returns true for valid trade") {
     StockApp app;
