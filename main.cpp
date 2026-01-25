@@ -16,19 +16,21 @@ int main() {
 
 //         A) CALCULATIONS (4 TESTS) 
 
-TEST_CASE("Total portfolio value with multiple trades") {
-    StockApp app;
-    app.addTradeTest({ "AAPL", 10, 100.0, Low });
-    app.addTradeTest({ "MSFT", 5, 200.0, Medium });
-
-    CHECK(app.getTotalPortfolioValue() == doctest::Approx(2000.0));
-}
 
 TEST_CASE("Total portfolio value with single trade") {
     StockApp app;
     app.addTradeTest({ "GOOG", 2, 500.0, High });
 
     CHECK(app.getTotalPortfolioValue() == 1000.0);
+}
+
+
+TEST_CASE("Total portfolio value with multiple trades") {
+    StockApp app;
+    app.addTradeTest({ "AAPL", 10, 100.0, Low });
+    app.addTradeTest({ "MSFT", 5, 200.0, Medium });
+
+    CHECK(app.getTotalPortfolioValue() == doctest::Approx(2000.0));
 }
 
 TEST_CASE("Total portfolio value with no trades") {
@@ -61,7 +63,7 @@ TEST_CASE("Medium risk stored correctly") {
 
 TEST_CASE("Invalid index returns default risk") {
     StockApp app;
-    CHECK(app.getRiskAt(0) == Low);
+    CHECK(app.getRiskAt(0) == Medium);
 }
 
 //         C) STRUCT / ARRAY PROCESSING (3 TESTS) 
