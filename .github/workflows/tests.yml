@@ -1,4 +1,4 @@
-name: C++ Unit Tests
+name: C++ Unit Tests (Windows)
 
 on:
   push:
@@ -12,11 +12,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Install compiler
-      run: sudo apt-get update && sudo apt-get install -y g++
+    - name: Setup MSVC
+      uses: ilammy/msvc-dev-cmd@v1
 
     - name: Build project
-      run: g++ -std=c++17 main.cpp StockApp.cpp -o tests
+      run: |
+        cl /std:c++17 main.cpp StockApp.cpp
 
     - name: Run tests
-      run: ./tests
+      run: |
+        main.exe
