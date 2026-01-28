@@ -1,4 +1,4 @@
-
+#define RUN_TESTS
 #ifdef RUN_TESTS
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
