@@ -1,8 +1,18 @@
-#define RUN_TESTS
-#ifdef RUN_TESTS
+#include "StockApp.h"
+
+#ifndef _DEBUG
+
+int main() {
+    StockApp app;
+    app.displayBanner();
+    app.showMenu();
+    return 0;
+}
+
+#else
+
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-#include "StockApp.h"
 
 // ---------------- A) CALCULATIONS (4 TESTS) ----------------
 
@@ -90,14 +100,4 @@ TEST_CASE("addTradeTest rejects negative values") {
     CHECK(app.addTradeTest({ "BAD", -1, 10.0, Low }) == false);
 }
 
-
-#else
-#include "StockApp.h"
-
-int main() {
-    StockApp app;
-    app.displayBanner();
-    app.showMenu();
-    return 0;
-}
 #endif
