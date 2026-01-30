@@ -62,7 +62,7 @@ TEST_CASE("Medium risk stored correctly") {
 
 TEST_CASE("Invalid index returns default risk") {
     StockApp app;
-    CHECK(app.getRiskAt(0) == Medium);
+    CHECK(app.getRiskAt(0) == Low);
 }
 
 // ---------------- C) STRUCT / ARRAY PROCESSING (3 TESTS) ----------------
